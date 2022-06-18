@@ -44,8 +44,8 @@ class hook_shop_siteWide_pwa {
       $GLOBALS['db']->query(sprintf(<<<'EOSQL'
 UPDATE orders
   SET reviews_key = '%s'
-  WHERE customers_id = %s
-    AND orders_id = %s
+  WHERE customers_id = %d
+    AND orders_id = %d
 EOSQL
       , $GLOBALS['db']->escape($reviews_key), (int)$_SESSION['customer_id'], (int)$order->get_id()));
 
@@ -115,7 +115,7 @@ EOSQL
 SELECT products_id
   FROM products_notifications
     WHERE products_id = '%s'
-      AND customers_id = %s
+      AND customers_id = %d
     LIMIT 1
 EOSQL
                 , (int)$n, (int)$_SESSION['customer_id']));
@@ -197,7 +197,7 @@ $("input:radio[name=\'pwa_account\']").click(function() {
         $db->query(sprintf(<<<'EOSQL'
 UPDATE customers
   SET customers_guest = '0'
-  WHERE customers_id = %s
+  WHERE customers_id = %d
 EOSQL
           , (int)$_SESSION['customer_id']));
       } elseif ( Request::get_page() !== 'download.php' && basename(Request::get_page()) !== 'set_password.php' && !Text::is_prefixed_by(Request::get_page(), 'checkout') ) {
@@ -217,38 +217,40 @@ EOSQL
     $db->query(sprintf(<<<'EOSQL'
 DELETE
   FROM customers
-  WHERE customers_id = %s
+  WHERE customers_id = %d
     AND customers_guest = '1'
 EOSQL
-    , (int)$customer_id));
+      , (int)$customer_id));
 
     $db->query(sprintf(<<<'EOSQL'
 DELETE
   FROM address_book
-  WHERE customers_id = %s
+  WHERE customers_id = %d
 EOSQL
-    , (int)$customer_id));
+      , (int)$customer_id));
 
     $db->query(sprintf(<<<'EOSQL'
 DELETE
   FROM customers_info
-  WHERE customers_info_id = %s
+  WHERE customers_info_id = %d
 EOSQL
-    , (int)$customer_id));
+      , (int)$customer_id));
 
     $db->query(sprintf(<<<'EOSQL'
 DELETE
   FROM customers_basket
-  WHERE customers_id = %s
+  WHERE customers_id = %d
 EOSQL
-    , (int)$customer_id));
+      , (int)$customer_id));
 
     $db->query(sprintf(<<<'EOSQL'
 DELETE
   FROM customers_basket_attributes
-  WHERE customers_id = %s
+  WHERE customers_id = %d
 EOSQL
-    , (int)$customer_id));
+      , (int)$customer_id));
+
+    unset($_SESSION['customer_id']);
   }
 
 }
