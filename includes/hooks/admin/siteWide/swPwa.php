@@ -131,7 +131,10 @@ EOSQL
   function listen_constructPaginator( $param ) {
     global $table_definition;
 
-    if ( Request::get_page() == 'orders.php' || Request::get_page() == 'customers.php' ) {
+    if ( Request::get_page() == 'orders.php'
+      || Request::get_page() == 'customers.php'
+      || ((Request::get_page() === 'reviews.php') && empty($GLOBALS['action']) || ($GLOBALS['action'] === 'delete' )))
+    {
       $index = (int)array_search(TABLE_HEADING_ACTION, array_column($table_definition['columns'], 'name'));
       array_splice($table_definition['columns'], $index, 0, [[
         'name' => HOOK_SWPWA_GUEST,
@@ -192,37 +195,6 @@ $('#oNotifyComments').closest('div').parent().closest('div').after('{$guest_revi
 </script>
 EOD;
 
-    } elseif ( Request::get_page() === 'reviews.php' ) {
-      global $reviews_query;
-
-      if ( empty($action) || $action === 'delete' ) {
-
-        $reviews = $reviews_query->data_seek(0);
-
-        $header_title_guest = HOOK_SWPWA_GUEST;
-
-        $output = <<<EOD
-<script>
-$(function() {
-$('table thead tr th:nth-child(3)').after('<th class="text-center">{$header_title_guest}</th>');
-EOD;
-
-        while ($reviews = $reviews_query->fetch_assoc()) {
-          $reviews_status = ($reviews['reviews_status'] == '1')? '0' : '1';
-          $reviews_id = $reviews['reviews_id'];
-          $customer_guest = $reviews['customers_guest'] == '1' ? '<i class="fas fa-check"></i>' : '&nbsp;';
-
-          $output .=  PHP_EOL . <<<EOD
-        $('table tbody tr td:has([href*="action=set_flag&flag={$reviews_status}&rID={$reviews_id}"])').before('<td class="text-center">{$customer_guest}</td>');
-EOD;
-      }
-
-        $output .= <<<EOD
-});
-</script>
-EOD;
-
-      }
     }
 
     return $output;
