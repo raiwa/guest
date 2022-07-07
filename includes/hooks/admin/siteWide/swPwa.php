@@ -38,7 +38,7 @@ class hook_admin_siteWide_swPwa {
       }
     }
 
-    $link = $check_status['customers_guest'] == '1' ? '' : MODULE_NOTIFICATIONS_UPDATE_ORDER_TEXT_INVOICE_URL . ' ' . $GLOBALS['Admin']->catalog('account_history_info.php', ['order_id' => $data['orders_id']]) . "\n";
+    $link = $check_status['customers_guest'] == '1' ? '' : sprintf(MODULE_NOTIFICATIONS_UPDATE_ORDER_TEXT_INVOICE_URL, $GLOBALS['Admin']->catalog('account_history_info.php', ['order_id' => $data['orders_id']])) . "\n";
     $email = STORE_NAME . "\n" . MODULE_NOTIFICATIONS_UPDATE_ORDER_SEPARATOR . "\n" .
              sprintf(MODULE_NOTIFICATIONS_UPDATE_ORDER_TEXT_ORDER_NUMBER .  "\n", $data['orders_id']) .
              $link .
