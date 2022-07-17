@@ -131,11 +131,14 @@ EOSQL
   function listen_constructPaginator( $param ) {
     global $table_definition;
 
-    if ( Request::get_page() == 'orders.php'
-      || Request::get_page() == 'customers.php'
-      || ((Request::get_page() === 'reviews.php') && empty($GLOBALS['action']) || ($GLOBALS['action'] === 'delete' )))
+    if ( in_array(Request::get_page(), ['orders.php', 'customers.php', 'reviews.php'], true)
+      && isset($table_definition['columns']))
     {
-      $index = (int)array_search(TABLE_HEADING_ACTION, array_column($table_definition['columns'], 'name'));
+      $index = array_search(TABLE_HEADING_ACTION, array_column($table_definition['columns'], 'name'));
+      if (!is_int($index)) {
+        $index = -1;
+      }
+
       array_splice($table_definition['columns'], $index, 0, [[
         'name' => HOOK_SWPWA_GUEST,
         'class' => 'text-center',
@@ -146,7 +149,7 @@ EOSQL
 
     }
 
-    if ( Request::get_page() == 'customers.php' ) {
+    if ( Request::get_page() === 'customers.php' ) {
       $guests_query = $GLOBALS['db']->query(<<<'EOSQL'
 SELECT COUNT(*) AS total
   FROM customers c, customers_info ci
