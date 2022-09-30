@@ -3,7 +3,7 @@
   $Id$
 
   Purchase without Account for Phoenix
-  Version 4.5.0 Phoenix
+  Version 4.6.0. Phoenix
   by @raiwa
   info@oscaddons.com
   www.oscaddons.com
@@ -59,7 +59,7 @@
       return [
         'MODULE_CONTENT_CHECKOUT_SUCCESS_PWA_KEEP_ACCOUNT_VERSION' => [
           'title' => 'Current Version',
-          'value' => '4.5.0. Phoenix',
+          'value' => '4.6.0. Phoenix',
           'desc' => 'Version info. It is read only',
           'set_func' => 'cm_cs_pwa_keep_account::readonly(',
         ],

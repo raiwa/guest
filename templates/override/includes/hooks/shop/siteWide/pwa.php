@@ -4,7 +4,7 @@
   $Loc: catalog/includes/hooks/shop/siteWide/
 
   Purchase without Account for Phoenix
-  Version 4.5.3 Phoenix
+  Version 4.6.0. Phoenix
   by @raiwa
   info@oscaddons.com
   www.oscaddons.com
@@ -22,7 +22,7 @@
 
 class hook_shop_siteWide_pwa {
 
-  public $version = '4.5.3';
+  public $version = '4.6.0.';
 
   public function listen_orderMail($parameters) {
 

@@ -1,7 +1,7 @@
 <?php
 /*
   Purchase without Account for Phoenix
-  Version 4.5.4 Phoenix
+  Version 4.6.0. Phoenix
   by @raiwa
   info@oscaddons.com
   www.oscaddons.com
@@ -19,7 +19,7 @@
 
 class hook_admin_siteWide_swPwa {
 
-  public $version = '4.5.3';
+  public $version = '4.6.0.';
 
   function listen_statusUpdateEmail($data) {
     global $check_status, $notify_comments, $orders_status_array, $status, $comments;

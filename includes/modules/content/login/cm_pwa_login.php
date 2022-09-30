@@ -3,7 +3,7 @@
   $Id$
 
   Purchase without Account for Phoenix
-  Version 4.5.2 Phoenix
+  Version 4.6.0. Phoenix
   by @raiwa
   info@oscaddons.com
   www.oscaddons.com
@@ -55,7 +55,7 @@
       return [
         'MODULE_CONTENT_PWA_LOGIN_VERSION' => [
           'title' => 'Current Version',
-          'value' => '4.5.2. Phoenix',
+          'value' => '4.6.0. Phoenix',
           'desc' => 'Version info. It is read only',
           'set_func' => 'cm_pwa_login::readonly(',
         ],

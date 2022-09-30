@@ -21,7 +21,7 @@
   $Id$
 
   Purchase without Account for Phoenix
-  Version 4.5.0 Phoenix
+  Version 4.6.0 Phoenix
   by @raiwa
   info@oscaddons.com
   www.oscaddons.com
