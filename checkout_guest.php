@@ -3,7 +3,7 @@
   $Id$
 
   Purchase without Account for Phoenix
-  Version 4.6.0. Phoenix
+  Version 4.6.1. Phoenix
   by @raiwa
   info@oscaddons.com
   www.oscaddons.com
@@ -43,7 +43,7 @@
 
       $customer = new customer($customer_data->get('id', $customer_details));
       $_SESSION['customer_id'] = $customer->get_id();
-      $customer_id =& $_SESSION['customers_id'];
+      $customer_id =& $_SESSION['customer_id'];
 
       $_SESSION['customer_is_guest'] = 1;
 
