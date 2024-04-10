@@ -3,7 +3,7 @@
   $Id$
 
   Purchase without Account for Phoenix
-  Version 4.6.2. Phoenix
+  Version 4.6.3. Phoenix
   by @raiwa
   info@oscaddons.com
   www.oscaddons.com
@@ -59,7 +59,7 @@
   $grouped_modules = $customer_data->get_grouped_modules();
 
   $customer_data_group_query = $db->query(sprintf(<<<'EOSQL'
-SELECT customer_data_groups_id, customer_data_groups_name
+SELECT *
  FROM customer_data_groups
  WHERE language_id = %d
  ORDER BY cdg_vertical_sort_order

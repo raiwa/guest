@@ -3,7 +3,7 @@
   $Id$
 
   Purchase without Account for Phoenix
-  Version 4.6.0. Phoenix
+  Version 4.6.3. Phoenix
   by @raiwa
   info@oscaddons.com
   www.oscaddons.com
@@ -19,13 +19,12 @@
   Released under the GNU General Public License
 */
 
-  $link = $Linker->build();
-  $breadcrumb->add(NAVBAR_TITLE, "");
+  $breadcrumb->add(NAVBAR_TITLE, $Linker->build('checkout_guest.php'));
 
   require $Template->map('template_top.php', 'component');
 ?>
 
-<h1 class="display-4"><?= HEADING_TITLE; ?></h1>
+<h1 class="display-4"><?= HEADING_TITLE ?></h1>
 
 <?php
   if ($messageStack->size($message_stack_area) > 0) {
@@ -41,9 +40,11 @@
 </div>
 
 <?php
-  echo (new Form('checkout_guest', $link))->hide('action', 'process');
+  echo (new Form('checkout_guest', $Linker->build(), 'post', [], true))->hide('action', 'process');
 
-  while ( $customer_data_group = $customer_data_group_query->fetch_assoc() ) {
+  echo '<div class="row">';
+
+  while ($customer_data_group = $customer_data_group_query->fetch_assoc()) {
     $modules = $grouped_modules[$customer_data_group['customer_data_groups_id']] ?? [];
     $modules = array_filter($modules, function ($v) use ($page_fields) {
       return count(array_intersect(get_class($v)::PROVIDES, $page_fields)) > 0;
@@ -54,13 +55,22 @@
     }
     ?>
 
-    <h4><?= $customer_data_group['customer_data_groups_name'] ?></h4>
+    <div class="<?= $customer_data_group['customer_data_groups_width'] ?>">
 
+      <h4><?= $customer_data_group['customer_data_groups_name'] ?></h4>
+
+      <?php
+      foreach ($modules as $module) {
+        $module->display_input($customer_details);
+      }
+      ?>
+      
+    </div>
+    
     <?php
-    foreach ($modules as $module) {
-      $module->display_input($customer_details);
-    }
   }
+
+  echo '</div>';
 
   echo $hooks->cat('injectFormDisplay');
 ?>
