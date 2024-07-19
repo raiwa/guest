@@ -1,22 +1,25 @@
 <?php
 /*
-  $Id$
-
-  Purchase without Account for Phoenix
-  Version 4.6.0. Phoenix
-  by @raiwa
-  info@oscaddons.com
-  www.oscaddons.com
-  all credits to @deDocta
-
-  Copyright (c) 2021 Rainer Schmied
-
-  CE Phoenix, E-Commerce made Easy
-  https://phoenixcart.org
-
-  Copyright (c) 2021 Phoenix Cart
-
-  Released under the GNU General Public License
+* $Id: zz_redirect.php
+* $Loc: /templates/override/includes/hooks/shop/write/
+*
+* Name: PWAGuestAccount
+* Version: 4.5.4
+* Release Date: 2024-07-19
+* Author: Rainer Schmied
+* 	 phoenixcartaddonsaddons.com / raiwa@phoenixcartaddons.com
+*
+* License: Released under the GNU General Public License
+*
+* Comments: Author: [Rainer Schmied @raiwa]
+* Author URI: [www.phoenixcartaddons.com]
+* 
+* CE Phoenix, E-Commerce made Easy
+* https://phoenixcart.org
+* 
+* Copyright (c) 2021 Phoenix Cart
+* 
+* 
 */
 
   class hook_shop_write_zz_redirect {

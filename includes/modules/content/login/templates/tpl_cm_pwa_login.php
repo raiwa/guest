@@ -1,4 +1,4 @@
-<div class="col-sm-<?= $content_width ?> cm-pwa_login ">
+<div class="<?= MODULE_CONTENT_PWA_LOGIN_CONTENT_WIDTH ?> cm-pwa_login ">
   <p class="alert alert-info" role="alert"><?= MODULE_CONTENT_PWA_LOGIN_HEADING ?></p>
     <p>
 <?=

@@ -1,22 +1,25 @@
 <?php
 /*
-  $Id$
-
-  Purchase without Account for Phoenix
-  Version 4.6.0. Phoenix
-  by @raiwa
-  info@oscaddons.com
-  www.oscaddons.com
-  all credits to @deDocta
-
-  Copyright (c) 2021 Rainer Schmied
-
-  CE Phoenix, E-Commerce made Easy
-  https://phoenixcart.org
-
-  Copyright (c) 2021 Phoenix Cart
-
-  Released under the GNU General Public License
+* $Id: cm_cs_pwa_keep_account.php
+* $Loc: /includes/modules/content/checkout_success/
+*
+* Name: PWAGuestAccount
+* Version: 4.5.4
+* Release Date: 2024-07-19
+* Author: Rainer Schmied
+* 	 phoenixcartaddonsaddons.com / raiwa@phoenixcartaddons.com
+*
+* License: Released under the GNU General Public License
+*
+* Comments: Author: [Rainer Schmied @raiwa]
+* Author URI: [www.phoenixcartaddons.com]
+* 
+* CE Phoenix, E-Commerce made Easy
+* https://phoenixcart.org
+* 
+* Copyright (c) 2021 Phoenix Cart
+* 
+* 
 */
 
   class cm_cs_pwa_keep_account extends abstract_executable_module {
@@ -57,27 +60,26 @@
 
     protected function get_parameters() {
       return [
-        'MODULE_CONTENT_CHECKOUT_SUCCESS_PWA_KEEP_ACCOUNT_VERSION' => [
+        $this->config_key_base . 'VERSION' => [
           'title' => 'Current Version',
-          'value' => '4.6.0. Phoenix',
+          'value' => '4.6.4. Phoenix',
           'desc' => 'Version info. It is read only',
           'set_func' => 'cm_cs_pwa_keep_account::readonly(',
         ],
-        'MODULE_CONTENT_CHECKOUT_SUCCESS_PWA_KEEP_ACCOUNT_STATUS' => [
+        $this->config_key_base . 'STATUS' => [
           'title' => 'Enable PWA Keep Account Module',
           'value' => 'True',
           'desc' => 'Do you want to enable this module?',
           'set_func' => "Config::select_one(['True', 'False'], ",
         ],
-        'MODULE_CONTENT_CHECKOUT_SUCCESS_PWA_KEEP_ACCOUNT_CONTENT_WIDTH' => [
-          'title' => 'Content Width',
-          'value' => '12',
-          'desc' => 'What width container should the content be shown in? (12 = full width, 6 = half width).',
-          'set_func' => "Config::select_one(['12', '11', '10', '9', '8', '7', '6', '5', '4', '3', '2', '1'], ",
+        $this->config_key_base . 'CONTENT_WIDTH' => [
+          'title' => 'Content Container',
+          'value' => 'col-sm-12',
+          'desc' => 'What container should the content be shown in? (col-*-12 = full width, col-*-6 = half width).',
         ],
-        'MODULE_CONTENT_CHECKOUT_SUCCESS_PWA_KEEP_ACCOUNT_SORT_ORDER' => [
+        $this->config_key_base . 'SORT_ORDER' => [
           'title' => 'Sort Order',
-          'value' => '100',
+          'value' => '2500',
           'desc' => 'Sort order of display. Lowest is displayed first.',
         ],
       ];

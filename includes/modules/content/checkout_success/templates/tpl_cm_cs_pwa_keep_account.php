@@ -1,4 +1,4 @@
-<div class="col-sm-12 cm-cs-pwa-keep-account">
+<div class="<?= MODULE_CONTENT_CHECKOUT_SUCCESS_PWA_KEEP_ACCOUNT_CONTENT_WIDTH ?> cm-cs-pwa-keep-account">
   <div class="card mb-2">
     <div class="card-header"><?= MODULE_CONTENT_CHECKOUT_SUCCESS_PWA_KEEP_ACCOUNT_PUBLIC_TITLE ?></div>
     <div class="card-body">

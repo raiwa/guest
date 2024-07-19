@@ -1,22 +1,25 @@
 <?php
 /*
-  $Id$
-
-  Purchase without Account for Phoenix
-  Version 4.4.0 Phoenix
-  by @raiwa
-  info@oscaddons.com
-  www.oscaddons.com
-  all credits to @deDocta
-
-  Copyright (c) 2021 Rainer Schmied
-
-  CE Phoenix, E-Commerce made Easy
-  https://phoenixcart.org
-
-  Copyright (c) 2021 Phoenix Cart
-
-  Released under the GNU General Public License
+* $Id: cm_cs_pwa_keep_account.php
+* $Loc: /includes/languages/german/modules/content/checkout_success/
+*
+* Name: PWAGuestAccount
+* Version: 4.5.4
+* Release Date: 2024-07-19
+* Author: Rainer Schmied
+* 	 phoenixcartaddonsaddons.com / raiwa@phoenixcartaddons.com
+*
+* License: Released under the GNU General Public License
+*
+* Comments: Author: [Rainer Schmied @raiwa]
+* Author URI: [www.phoenixcartaddons.com]
+* 
+* CE Phoenix, E-Commerce made Easy
+* https://phoenixcart.org
+* 
+* Copyright (c) 2021 Phoenix Cart
+* 
+* 
 */
 
 const MODULE_CONTENT_CHECKOUT_SUCCESS_PWA_KEEP_ACCOUNT_TITLE = 'PWA Konto erhalten';
